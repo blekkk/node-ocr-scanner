@@ -4,7 +4,7 @@ COPY package.json /usr/
 COPY package-lock.json /usr/
 COPY tsconfig.json /usr/
 COPY src/ /usr/
-RUN npm ci --only=production
+RUN npm ci
 RUN npm run build
 
 FROM node:lts-alpine
