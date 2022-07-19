@@ -3,7 +3,7 @@ WORKDIR /usr
 COPY package.json /usr/
 COPY package-lock.json /usr/
 COPY tsconfig.json /usr/
-COPY src/ /usr/
+COPY src/ /usr/src/
 RUN npm ci
 RUN npm run build
 
