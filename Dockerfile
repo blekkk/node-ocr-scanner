@@ -1,6 +1,7 @@
 FROM node:lts-alpine
 WORKDIR /usr
 COPY package.json /usr/
+COPY package-lock.json /usr/
 COPY tsconfig.json /usr/
 COPY src/ /usr/
 RUN npm ci --only=production
