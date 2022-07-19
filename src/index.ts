@@ -1,7 +1,9 @@
+require('dotenv').config();
 import { Request, Response } from "express";
 import express from 'express';
 import routes from './routes/routes';
-import multer from "multer";
+
+const PORT = process.env.PORT;
 
 const cors = require('cors');
 const app = express();
@@ -18,6 +20,6 @@ app.get('/', (req: Request, res: Response) => {
   return res.status(200).send('Hello 🐄');
 });
 
-app.listen(8000, () => {
+app.listen(PORT || 8000, () => {
   console.log("Started milking 🐄");
 })
