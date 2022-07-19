@@ -12,6 +12,7 @@ RUN apk update && apk add tesseract-ocr && apk add tesseract-ocr-data-ind
 ENV NODE_ENV production
 WORKDIR /usr
 COPY package.json ./
+COPY package-lock.json ./
 RUN npm ci --only=production
 COPY --from=0 /usr/dist .
 RUN npm install pm2 -g
