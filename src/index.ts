@@ -1,4 +1,3 @@
-require('dotenv').config();
 import { Request, Response } from "express";
 import express from 'express';
 import routes from './routes/routes';
