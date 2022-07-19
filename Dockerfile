@@ -8,7 +8,7 @@ RUN npm ci
 RUN npm run build
 
 FROM node:lts-alpine
-RUN apk update && apk add tesseract-ocr && apk add tesseract-ocr-ind
+RUN apk update && apk add tesseract-ocr && apk add tesseract-ocr-data-ind
 ENV NODE_ENV production
 WORKDIR /usr
 COPY package.json ./
