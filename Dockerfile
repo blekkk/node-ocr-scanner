@@ -13,6 +13,7 @@ ENV NODE_ENV production
 WORKDIR /usr
 COPY package.json ./
 COPY package-lock.json ./
+COPY images ./
 RUN npm ci --only=production
 COPY --from=0 /usr/dist .
 RUN npm install pm2 -g
