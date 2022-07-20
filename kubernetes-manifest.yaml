@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  ocr-backend-deployment
+  namespace: default
+  labels:
+    app:  ocr-backend
+spec:
+  selector:
+    matchLabels:
+      app: ocr-backend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app:  ocr-backend
+    spec:
+      containers:
+      - name:  ocr-backend
+        image:  blekkk/ocr-backend:latest
+        ports:
+        - containerPort:  8000
+          name:  ocr-backend
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocr-backend-service
+  namespace: default
+spec:
+  selector:
+    app: ocr-backend
+  type: LoadBalancer
+  ports:
+  - name: ocr-backend
+    protocol: TCP
+    port: 8000
+    targetPort: 8000
+---
