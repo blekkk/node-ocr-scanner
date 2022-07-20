@@ -13,9 +13,9 @@ FROM node:lts-alpine
 RUN apk update && apk add tesseract-ocr && apk add tesseract-ocr-data-ind
 ENV NODE_ENV production
 WORKDIR /usr
-COPY --from=build package.json ./
-COPY --from=build package-lock.json ./
-COPY --from=0 /usr/dist .
+COPY --from=build /usr/package.json ./
+COPY --from=build /usr/package-lock.json ./
+COPY --from=build /usr/dist .
 RUN mkdir -p images
 RUN npm ci --only=production
 RUN npm install pm2 -g
