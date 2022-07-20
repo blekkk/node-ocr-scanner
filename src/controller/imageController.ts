@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import fs from 'fs';
 import { readFile } from "fs/promises";
 import { promisify } from "util";
-import tesseract from "node-tesseract-ocr";
+import tesseract from '../utils/tesseract';
 import sharp from "sharp";
 
 export const recognizeText = async (req: Request, res: Response) => {
@@ -24,6 +24,7 @@ export const recognizeText = async (req: Request, res: Response) => {
 
       const result = await tesseract.recognize(image, {
         lang: 'ind',
+        output: ['txt']
       });
 
       if (result) {
