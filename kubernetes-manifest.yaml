@@ -31,7 +31,6 @@ metadata:
 spec:
   selector:
     app: ocr-backend
-  type: LoadBalancer
   ports:
   - name: ocr-backend
     protocol: TCP
