@@ -15,7 +15,7 @@ app.use(cors(CORS_OPTIONS));
 
 routes(app);
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/api', (req: Request, res: Response) => {
   return res.status(200).send('Hello 🐄');
 });
 

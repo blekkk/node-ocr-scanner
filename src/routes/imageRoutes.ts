@@ -5,6 +5,6 @@ import { storage } from '../utils/multer';
 const upload = multer({ storage: storage});
 
 export = (app: Express) => {
-  app.route('/image/ocr')
+  app.route('/api/image/ocr')
     .post(upload.array('images'), recognizeText);
 }
